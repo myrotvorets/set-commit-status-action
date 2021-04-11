@@ -1,0 +1,14 @@
+name: 'action-name'
+description: 'Action description'
+author: 'Myrotvorets'
+#inputs:
+
+#outputs:
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+
+#branding:
+#  color: blue
+#  icon: info
