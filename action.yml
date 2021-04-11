@@ -33,6 +33,7 @@ inputs:
 
   targetUrl:
     description: The target URL to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the source of the status.
+    default: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
     required: false
 
   description:
