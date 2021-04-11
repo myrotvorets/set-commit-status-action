@@ -1,14 +1,53 @@
-name: 'action-name'
-description: 'Action description'
-author: 'Myrotvorets'
-#inputs:
+name: set-commit-status
+description: Updates the status of the given commit
+author: Myrotvorets
+inputs:
+  token:
+    description: Authentication token
+    default: "${{ github.token }}"
+    required: false
 
-#outputs:
+  status:
+    description: Commit status (one of "error", "failure", "pending", "success")
+    default: pending
+    required: false
+
+  repo:
+    description: Repository to operate on (defaults to the current repository)
+    required: false
+
+  allowForks:
+    description: >
+      Whether to allow to set commit status if the request comes from a forked repository.
+      Defaults to `false` because the GITHUB_TOKEN for a forked repository usually does not have necessary permissions
+      to update the commit status. This only affects pull requests.
+    default: "false"
+    required: false
+
+  sha:
+    description: >
+      The SHA hash of the commit to update. It can be determined automatically for pushes and pull requests,
+      but needs to be provided for other events.
+    default: ""
+    required: false
+
+  targetUrl:
+    description: The target URL to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the source of the status.
+    required: false
+
+  description:
+    description: A short description of the status.
+    required: false
+
+  context:
+    description: A string label to differentiate this status from the status of other systems.
+    default: "${{ github.workflow }}"
+    required: false
 
 runs:
   using: 'node12'
   main: 'dist/index.js'
 
-#branding:
-#  color: blue
-#  icon: info
+branding:
+  color: blue
+  icon: check-circle

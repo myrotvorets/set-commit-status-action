@@ -1,15 +1,16 @@
 name: 'Build and Test'
 
 on:
-  pull_request:
   push:
     branches:
       - master
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    if: ${{ !contains(github.event.head_commit.message, '[ci skip]') || github.event_name == 'workflow_dispatch' }}
     steps:
       - uses: actions/checkout@v2
 
@@ -23,8 +24,20 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    if: ${{ !contains(github.event.head_commit.message, '[ci skip]') || github.event_name != 'push' }}
     steps:
       - uses: actions/checkout@v2
-      - id: action
+      - name: Set commit status as pending
         uses: ./
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: pending
+          context: 'Self Check'
+
+      - name: Set final commit status
+        uses: ./
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          context: 'Self Check'
