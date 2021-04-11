@@ -40,7 +40,6 @@ function getInputs(): Inputs {
 async function run(): Promise<void> {
     try {
         const inputs = getInputs();
-        console.log(inputs);
         if (isForeignPullRequest() && !inputs.allowForks) {
             warning('Ignoring the PR form a forked repository');
             return;
