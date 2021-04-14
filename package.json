@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@myrotvorets/eslint-config-myrotvorets-ts": "^2.2.5",
-    "@octokit/webhooks-definitions": "^3.67.0",
+    "@octokit/webhooks-definitions": "^3.67.3",
     "@types/node": "^14.14.25",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@vercel/ncc": "^0.28.2",
