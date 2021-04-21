@@ -1,6 +1,7 @@
 import { context } from '@actions/github';
 import type { RestEndpointMethodTypes } from '@octokit/plugin-rest-endpoint-methods';
-import type { PullRequest } from '@octokit/webhooks-definitions/schema';
+// eslint-disable-next-line import/no-unresolved
+import type { PullRequest } from '@octokit/webhooks-types';
 
 export type CommitStatusState = RestEndpointMethodTypes['repos']['createCommitStatus']['parameters']['state'];
 
