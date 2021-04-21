@@ -1,10 +1,16 @@
 import { getInput, setFailed, warning } from '@actions/core';
 import { getOctokit } from '@actions/github';
-import { getCommitHash, isForeignPullRequest, parseRepoName, validateCommitStatusState } from './utils';
+import {
+    CommitStatusState,
+    getCommitHash,
+    isForeignPullRequest,
+    parseRepoName,
+    validateCommitStatusState,
+} from './utils';
 
 interface Inputs {
     token: string;
-    state: 'error' | 'failure' | 'pending' | 'success';
+    state: CommitStatusState;
     owner: string;
     repo: string;
     allowForks: boolean;

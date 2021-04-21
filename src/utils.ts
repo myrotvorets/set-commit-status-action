@@ -1,5 +1,8 @@
 import { context } from '@actions/github';
+import type { RestEndpointMethodTypes } from '@octokit/plugin-rest-endpoint-methods';
 import type { PullRequest } from '@octokit/webhooks-definitions/schema';
+
+export type CommitStatusState = RestEndpointMethodTypes['repos']['createCommitStatus']['parameters']['state'];
 
 function isPullRequest(): boolean {
     return context.eventName === 'pull_request';
@@ -36,8 +39,8 @@ function getSHA(): string | null {
     }
 }
 
-export function validateCommitStatusState(state: string): 'error' | 'failure' | 'pending' | 'success' {
-    const allowedStates: Record<'error' | 'failure' | 'pending' | 'success', boolean> = {
+export function validateCommitStatusState(state: string): CommitStatusState {
+    const allowedStates: Record<CommitStatusState, boolean> = {
         error: true,
         failure: true,
         pending: true,
@@ -48,7 +51,7 @@ export function validateCommitStatusState(state: string): 'error' | 'failure' | 
         throw new Error('state must be one of "error", "failure", "pending", "success"');
     }
 
-    return state as 'error' | 'failure' | 'pending' | 'success';
+    return state as CommitStatusState;
 }
 
 export function getCommitHash(sha: string): string {
