@@ -21,7 +21,7 @@
     "@octokit/plugin-rest-endpoint-methods": "^5.0.1",
     "@octokit/webhooks-types": "^3.69.1",
     "@types/node": "^15.0.1",
-    "@vercel/ncc": "^0.28.2",
+    "@vercel/ncc": "^0.28.5",
     "eslint": "^7.19.0",
     "prettier": "^2.2.1",
     "typescript": "^4.1.3"
