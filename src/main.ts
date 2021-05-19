@@ -52,7 +52,7 @@ async function run(): Promise<void> {
         }
 
         const octokit = getOctokit(inputs.token);
-        await octokit.repos.createCommitStatus({
+        await octokit.rest.repos.createCommitStatus({
             owner: inputs.owner,
             repo: inputs.repo,
             sha: inputs.sha,
