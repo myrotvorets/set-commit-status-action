@@ -18,7 +18,6 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^5.0.0",
     "@myrotvorets/eslint-config-myrotvorets-ts": "^2.2.5",
-    "@octokit/plugin-rest-endpoint-methods": "^5.0.1",
     "@octokit/webhooks-types": "^3.69.1",
     "@types/node": "^15.0.3",
     "@vercel/ncc": "^0.28.2",

@@ -1,9 +1,8 @@
 import { context } from '@actions/github';
-import type { RestEndpointMethodTypes } from '@octokit/plugin-rest-endpoint-methods';
 // eslint-disable-next-line import/no-unresolved
 import type { PullRequest } from '@octokit/webhooks-types';
 
-export type CommitStatusState = RestEndpointMethodTypes['repos']['createCommitStatus']['parameters']['state'];
+export type CommitStatusState = 'error' | 'failure' | 'pending' | 'success';
 
 function isPullRequest(): boolean {
     return context.eventName === 'pull_request';
