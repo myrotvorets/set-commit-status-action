@@ -59,7 +59,7 @@ async function run(): Promise<void> {
             state: inputs.state,
             target_url: inputs.targetUrl,
             description: inputs.description,
-            context: inputs.context,
+            context: inputs.context || '',
         });
     } catch (error) {
         setFailed((error as Error).message);
