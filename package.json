@@ -19,7 +19,7 @@
     "@actions/github": "^5.0.0",
     "@myrotvorets/eslint-config-myrotvorets-ts": "^2.2.5",
     "@octokit/webhooks-types": "^4.0.1",
-    "@types/node": "^16.4.0",
+    "@types/node": "^16.4.7",
     "@vercel/ncc": "^0.29.0",
     "eslint": "^7.19.0",
     "prettier": "^2.2.1",
