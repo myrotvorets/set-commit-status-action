@@ -15,7 +15,7 @@
   "author": "Myrotvorets <support@myrotvorets.center> (https://myrotvorets.center/)",
   "license": "MIT",
   "devDependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.5.0",
     "@actions/github": "^5.0.0",
     "@myrotvorets/eslint-config-myrotvorets-ts": "^2.2.5",
     "@octokit/webhooks-types": "^4.0.1",
