@@ -19,7 +19,7 @@ GitHub action to update the status for the given commit.
 
 ```yaml
       - name: Set commit status as pending
-        uses: myrotvorets/set-commit-action
+        uses: myrotvorets/set-commit-status-action@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           status: pending
@@ -31,7 +31,7 @@ GitHub action to update the status for the given commit.
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Set final commit status
-        uses: myrotvorets/set-commit-action
+        uses: myrotvorets/set-commit-status-action@master
         if: always()
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
