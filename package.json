@@ -30,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/myrotvorets-team/set-commit-status-action/issues"
   },
-  "homepage": "https://github.com/myrotvorets-team/set-commit-status-action#readme"
+  "homepage": "https://github.com/myrotvorets-team/set-commit-status-action#readme",
+  "engines": {
+    "node": "16"
+  }
 }
