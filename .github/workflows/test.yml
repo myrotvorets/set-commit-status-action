@@ -22,9 +22,6 @@ jobs:
           node-version: '16'
           cache: npm
 
-      - name: Update npm
-        run: npm i -g npm@latest
-
       - name: Install dependencies
         run: npm ci
 
