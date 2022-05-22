@@ -7,6 +7,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Build
@@ -35,6 +38,9 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name && github.event.sender.login != 'dependabot[bot]' ||
       github.event_name == 'push' && !contains(github.event.head_commit.message, '[ci skip]')
+    permissions:
+      contents: read
+      statuses: write
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
       - name: Set commit status as pending

@@ -6,7 +6,7 @@ GitHub action to update the status for the given commit.
 
 | Name          | Default             | Description |
 | ------------- | ------------------- | ----------- |
-| `token`       | `github.token`      | Authentication token used to set the commit status. Defaults to `github.token`. |
+| `token`       | `github.token`      | Authentication token used to set the commit status. Defaults to `github.token`. The token must have `statuses: write` permission |
 | `status`      | `pending`           | Commit status to set (one of "error", "failure", "pending", "success").         |
 | `repo`        | `github.repository` | The name of the repository to operate on (`owner/repo`).                        |
 | `allowForks`  | `false`             | Whether to allow to set commit status if the request comes from a forked repository. Defaults to `false` because the `GITHUB_TOKEN` for a forked repository usually does not have the necessary permissions to update the commit status. *This only affects pull requests.* |
