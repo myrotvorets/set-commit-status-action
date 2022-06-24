@@ -1,4 +1,4 @@
-import { getInput, setFailed, warning } from '@actions/core';
+import { getInput, info, setFailed, warning } from '@actions/core';
 import { getOctokit } from '@actions/github';
 import {
     CommitStatusState,
@@ -39,7 +39,7 @@ function getInputs(): Inputs {
         sha,
         targetUrl: targetUrl || undefined,
         description: description || undefined,
-        context: context || undefined,
+        context: context,
     };
 }
 
@@ -51,6 +51,10 @@ async function run(): Promise<void> {
             return;
         }
 
+        info(
+            `Setting commit status for ${inputs.owner}/${inputs.repo}#${inputs.sha} to ${inputs.state} for context ${inputs.context}`,
+        );
+
         const octokit = getOctokit(inputs.token);
         await octokit.rest.repos.createCommitStatus({
             owner: inputs.owner,
@@ -59,7 +63,7 @@ async function run(): Promise<void> {
             state: inputs.state,
             target_url: inputs.targetUrl,
             description: inputs.description,
-            context: inputs.context || '',
+            context: inputs.context,
         });
     } catch (error) {
         setFailed((error as Error).message);
