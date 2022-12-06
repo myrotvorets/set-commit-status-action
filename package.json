@@ -20,7 +20,7 @@
     "@myrotvorets/eslint-config-myrotvorets-ts": "^2.2.5",
     "@octokit/webhooks-types": "^6.0.0",
     "@types/node": "^16.0.0",
-    "@vercel/ncc": "^0.34.0",
+    "@vercel/ncc": "^0.36.0",
     "typescript": "^4.1.3"
   },
   "repository": {
