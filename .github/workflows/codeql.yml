@@ -2,9 +2,11 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
   schedule:
     - cron: "51 13 * * 2"
 
@@ -16,12 +18,11 @@ jobs:
       actions: read
       contents: read
       security-events: write
-
     strategy:
       fail-fast: false
       matrix:
-        language: [ javascript ]
-
+        language:
+          - javascript
     steps:
       - name: Checkout
         uses: actions/checkout@v3
