@@ -47,6 +47,10 @@ export function validateCommitStatusState(state: string): CommitStatusState {
         success: true,
     };
 
+    if (state === 'cancelled') {
+        return 'error';
+    }
+
     if (!(state in allowedStates)) {
         throw new Error('state must be one of "error", "failure", "pending", "success"');
     }
