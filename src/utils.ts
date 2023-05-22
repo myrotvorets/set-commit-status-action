@@ -17,7 +17,7 @@ export function isForeignPullRequest(): boolean {
     if (payload.pull_request) {
         const pr = payload.pull_request as PullRequest;
         const baseRepo = pr.base.repo.full_name;
-        const headRepo = pr.head.repo.full_name;
+        const headRepo = pr.head.repo?.full_name;
 
         return baseRepo !== headRepo;
     }
