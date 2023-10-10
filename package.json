@@ -16,7 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "@actions/core": "^1.10.1",
-    "@actions/github": "^5.1.1",
+    "@actions/github": "^6.0.0",
     "@myrotvorets/eslint-config-myrotvorets-ts": "^2.21.0",
     "@octokit/webhooks-types": "^7.3.1",
     "@types/node": "^20.8.4",
