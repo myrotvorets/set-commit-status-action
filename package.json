@@ -21,7 +21,7 @@
     "@octokit/webhooks-types": "^7.3.1",
     "@types/node": "^20.10.3",
     "@vercel/ncc": "^0.38.1",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "repository": {
     "type": "git",
