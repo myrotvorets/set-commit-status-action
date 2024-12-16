@@ -1,5 +1,4 @@
 import { context } from '@actions/github';
-// eslint-disable-next-line import/no-unresolved
 import type { PullRequest } from '@octokit/webhooks-types';
 
 export type CommitStatusState = 'error' | 'failure' | 'pending' | 'success';
