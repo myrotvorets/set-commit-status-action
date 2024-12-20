@@ -32,6 +32,6 @@
   },
   "homepage": "https://github.com/myrotvorets-team/set-commit-status-action#readme",
   "engines": {
-    "node": "20"
+    "node": "22"
   }
 }
