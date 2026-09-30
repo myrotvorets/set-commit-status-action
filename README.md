@@ -15,11 +15,21 @@ GitHub action to update the status for the given commit.
 | `description` |                     | A short description of the status.                                              |
 | `context`     | `github.workflow`   | A string label to differentiate this status from the status of other systems.   |
 
+## Versioning
+
+Pin to a full commit SHA to prevent tag mutation attacks. Use `git describe` output as a comment to keep the reference human-readable:
+
+```yaml
+uses: myrotvorets/set-commit-status-action@36373b7607fe80093962a6fefbd14cadb829f7de # v2.0.1-594-g36373b7
+```
+
+Avoid `@master` or bare tags like `@v2` — they can be silently moved to a different commit.
+
 ## Example usage
 
 ```yaml
       - name: Set commit status as pending
-        uses: myrotvorets/set-commit-status-action@master
+        uses: myrotvorets/set-commit-status-action@36373b7607fe80093962a6fefbd14cadb829f7de # v2.0.1-594-g36373b7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           status: pending
@@ -31,7 +41,7 @@ GitHub action to update the status for the given commit.
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Set final commit status
-        uses: myrotvorets/set-commit-status-action@master
+        uses: myrotvorets/set-commit-status-action@36373b7607fe80093962a6fefbd14cadb829f7de # v2.0.1-594-g36373b7
         if: always()
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
