@@ -2,5 +2,10 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
         "local>myrotvorets/.github:renovate-config"
-    ]
+    ],
+    "postUpgradeTasks": {
+        "commands": ["npm run build && npm run package"],
+        "fileFilters": ["dist/index.js"],
+        "executionMode": "branch"
+    }
 }
