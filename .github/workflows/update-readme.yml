@@ -1,0 +1,36 @@
+name: Update README pins
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    name: Update README version pins
+    runs-on: ubuntu-latest
+    if: |
+      github.actor != 'github-actions[bot]' &&
+      !contains(github.event.head_commit.message, '[ci skip]')
+    steps:
+      - name: Check out the source code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Update SHA pins in README
+        run: |
+          SHA="${{ github.sha }}"
+          DESCRIBE=$(git describe --tags --long)
+          sed -i "s|myrotvorets/set-commit-status-action@[a-f0-9]\{40\} # [^ ]*|myrotvorets/set-commit-status-action@${SHA} # ${DESCRIBE}|g" README.md
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if ! git diff --cached --exit-code; then
+            git commit -m "chore: update README version pins [ci skip]"
+            git push
+          fi
